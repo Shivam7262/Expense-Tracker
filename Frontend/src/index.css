@@ -1,0 +1,50 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loading-message.error {
+  background: #fff8f8;
+  border: 1px solid #ffebee;
+}
+
+.loading-message.error h3 {
+  color: #d32f2f;
+}
+
+.loading-message.error button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.loading-message.error button:hover {
+  background: #b71c1c;
+}
+
+.loading-message h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.loading-message p {
+  color: #6c757d;
+  margin: 0.5rem 0;
+}

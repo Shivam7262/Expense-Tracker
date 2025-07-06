@@ -1,0 +1,24 @@
+/* Content Layout */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.home-section,
+.history-section,
+.split-expense-section {
+  opacity: 0.5;
+  transform: scale(0.98);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.home-section.active,
+.history-section.active,
+.split-expense-section.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+} 

@@ -1,0 +1,320 @@
+.add-transaction-container {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Glassmorphism Card */
+.add-transaction-form {
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(17, 37, 63, 0.8));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 500px;
+}
+
+.add-transaction-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Title Styling */
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4f86f7, #275df5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #4f86f7, transparent);
+  transform: translateX(-50%);
+}
+
+/* Input Fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c3dafe;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.form-input,
+.category-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.form-input:hover,
+.category-select:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.form-input:focus,
+.category-select:focus {
+  outline: none;
+  border-color: #4f86f7;
+  background: rgba(79, 134, 247, 0.15);
+  box-shadow: 0 0 0 4px rgba(79, 134, 247, 0.25);
+}
+
+/* Transaction Type Selection */
+.type-selection {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.type-option {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+  color: #c3dafe;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.type-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.type-option:hover::before {
+  transform: translateX(100%);
+}
+
+.type-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Income & Expense Selection */
+.type-option.selected.income {
+  background: linear-gradient(135deg, #16a34a, #059669);
+  border-color: #16a34a;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(22, 163, 74, 0.4);
+}
+
+.type-option.selected.expense {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  border-color: #ef4444;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Amount Input */
+.amount-input-group {
+  position: relative;
+}
+
+.amount-input-group::before {
+  /* content: '₹'; */
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b8949b;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.amount-input-group .form-input {
+  padding-left: 0rem;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: auto;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #275df5, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(45, 82, 249, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(45, 82, 249, 0.5);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-transaction-container {
+    padding: 1rem;
+  }
+
+  .add-transaction-form {
+    padding: 2rem;
+    min-height: auto;
+    max-width: 100%;
+  }
+
+  .form-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    gap: 0.5rem;
+  }
+
+  .form-input,
+  .category-select {
+    padding: 0.875rem 1rem;
+  }
+
+  .type-selection {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .type-option {
+    width: 100%;
+    padding: 0.875rem;
+  }
+
+  .submit-btn {
+    padding: 0.875rem 1.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-transaction-container {
+    padding: 0.75rem;
+  }
+
+  .add-transaction-form {
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+  }
+
+  .form-input,
+  .category-select,
+  .type-option {
+    font-size: 0.875rem;
+  }
+
+  .amount-input-group::before {
+    font-size: 1rem;
+    left: 1rem;
+  }
+
+  .amount-input-group .form-input {
+    padding-left: 0.75rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .add-transaction-form {
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(17, 37, 63, 0.9));
+  }
+
+  .form-input,
+  .category-select {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+  }
+
+  .form-input:hover,
+  .category-select:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .form-input:focus,
+  .category-select:focus {
+    background: rgba(79, 134, 247, 0.1);
+  }
+}
