@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useAuth } from '../context/AuthContext';
 import '../styles/Header.css';
 
-const Header = ({ totalBalance, onEditIncome, currentPage, onPageChange }) => {
-  const { user, logout } = useAuth();
+const Header = ({ totalBalance, onEditIncome, currentPage, onPageChange, onProfileClick, user }) => {
+  const { logout } = useAuth();
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const handleLogout = async () => {
@@ -57,11 +57,16 @@ const Header = ({ totalBalance, onEditIncome, currentPage, onPageChange }) => {
           <button className="income-button" onClick={onEditIncome}>
             Edit Income
           </button>
-          
           <div className="user-menu-container">
             <button 
               className="user-menu-button"
-              onClick={() => setShowUserMenu(!showUserMenu)}
+              onClick={() => {
+                if (!user) {
+                  onProfileClick();
+                } else {
+                  setShowUserMenu(!showUserMenu);
+                }
+              }}
             >
               <div className="user-avatar">
                 {user?.avatar ? (
@@ -70,11 +75,11 @@ const Header = ({ totalBalance, onEditIncome, currentPage, onPageChange }) => {
                   <span>{user?.name?.charAt(0)?.toUpperCase() || 'U'}</span>
                 )}
               </div>
-              <span className="user-name">{user?.name || 'User'}</span>
+              <span className="user-name">{user?.name || 'Sign In / Register'}</span>
               <span className="dropdown-arrow">▼</span>
             </button>
-
-            {showUserMenu && (
+            {/* Only show user menu if authenticated */}
+            {showUserMenu && user && (
               <div className="user-menu">
                 <div className="user-menu-header">
                   <div className="user-info">
@@ -91,7 +96,6 @@ const Header = ({ totalBalance, onEditIncome, currentPage, onPageChange }) => {
                     </div>
                   </div>
                 </div>
-                
                 <div className="user-menu-items">
                   <button className="menu-item">
                     <span>Profile Settings</span>
@@ -112,9 +116,8 @@ const Header = ({ totalBalance, onEditIncome, currentPage, onPageChange }) => {
           </div>
         </div>
       </div>
-
       {/* Backdrop to close menu when clicking outside */}
-      {showUserMenu && (
+      {showUserMenu && user && (
         <div 
           className="menu-backdrop" 
           onClick={() => setShowUserMenu(false)}
@@ -129,6 +132,8 @@ Header.propTypes = {
   onEditIncome: PropTypes.func.isRequired,
   currentPage: PropTypes.oneOf(['home', 'history', 'split']).isRequired,
   onPageChange: PropTypes.func.isRequired,
+  onProfileClick: PropTypes.func.isRequired,
+  user: PropTypes.object,
 };
 
 export default Header;

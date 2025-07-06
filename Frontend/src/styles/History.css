@@ -226,7 +226,6 @@
 }
 
 .filter-button:hover {
-  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
 }
 
@@ -256,7 +255,6 @@
 }
 
 .delete-button:hover {
-  background: rgba(239, 68, 68, 0.2);
   transform: scale(1.1);
 }
 
@@ -335,6 +333,5 @@
   }
 
   .transaction-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
+}
 }

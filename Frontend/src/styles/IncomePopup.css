@@ -86,7 +86,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
-  color: #ffffff;
+  color: #000000;
   font-size: 1.125rem;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -95,6 +95,7 @@
 .income-input:focus {
   outline: none;
   border-color: rgba(59, 130, 246, 0.5);
+  color: #000000;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
@@ -138,7 +139,6 @@
 }
 
 .skip-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
 }
 

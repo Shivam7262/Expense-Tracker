@@ -73,7 +73,6 @@
 }
 
 .nav-button:hover {
-  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
 }
 
@@ -102,7 +101,6 @@
 }
 
 .income-button:hover {
-  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-1px);
 }
 
@@ -127,7 +125,6 @@
 }
 
 .user-menu-button:hover {
-  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-1px);
 }
 
@@ -238,7 +235,6 @@
 
 .menu-item:hover {
   background: #f3f4f6;
-  color: #111827;
 }
 
 .menu-item.logout {
@@ -247,7 +243,6 @@
 
 .menu-item.logout:hover {
   background: #fef2f2;
-  color: #dc2626;
 }
 
 .menu-divider {

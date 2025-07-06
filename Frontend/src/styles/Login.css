@@ -69,6 +69,7 @@
   border: 2px solid #e1e5e9;
   border-radius: 10px;
   font-size: 16px;
+  color: #000000;
   transition: all 0.3s ease;
   background: #f8f9fa;
 }
@@ -77,15 +78,18 @@
   outline: none;
   border-color: #667eea;
   background: white;
+  color: #000000;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .form-group input.error {
   border-color: #e74c3c;
   background: #fdf2f2;
+  color: #000000;
 }
 
 .form-group input.error:focus {
+  color: #000000;
   box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
 }
 
@@ -160,7 +164,6 @@
 }
 
 .link-button:hover {
-  color: #764ba2;
 }
 
 /* Loading state */

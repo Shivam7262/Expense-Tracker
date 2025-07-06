@@ -91,7 +91,6 @@
 }
 
 .remove-participant-btn:hover {
-  background: rgba(239, 68, 68, 0.1);
 }
 
 .total-amount {
@@ -114,7 +113,6 @@
 }
 
 .select-participant-btn:hover {
-  background: #e5e7eb;
 }
 
 /* Transactions Table */
@@ -159,7 +157,6 @@ td {
 }
 
 tr:hover {
-  background: #f9fafb;
 }
 
 .type-badge {
@@ -234,12 +231,14 @@ tr:hover {
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   font-size: 1rem;
+  color: #000000;
   transition: all 0.2s ease;
 }
 
 .form-control input:focus {
   outline: none;
   border-color: #6366f1;
+  color: #000000;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
@@ -290,7 +289,6 @@ tr:hover {
 }
 
 .cancel-btn:hover {
-  background: #e5e7eb;
 }
 
 /* Error Message */

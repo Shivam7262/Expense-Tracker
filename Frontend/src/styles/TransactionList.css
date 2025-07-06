@@ -57,7 +57,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  color: #e2e8f0;
+  color: #000000;
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
@@ -66,6 +66,7 @@
   outline: none;
   border-color: #3b82f6;
   background: rgba(59, 130, 246, 0.1);
+  color: #000000;
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
@@ -88,7 +89,6 @@
 }
 
 .clear-search-btn:hover {
-  color: #e2e8f0;
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -106,7 +106,6 @@
 }
 
 .clear-all-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
   transform: translateY(-1px);
 }
 
@@ -244,7 +243,6 @@
 }
 
 .delete-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
   transform: scale(1.1);
 }
 
@@ -296,7 +294,6 @@
 }
 
 .clear-search-btn-inline:hover {
-  background: rgba(59, 130, 246, 0.1);
 }
 
 .loading-message {

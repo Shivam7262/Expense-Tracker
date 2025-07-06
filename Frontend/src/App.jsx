@@ -17,6 +17,7 @@ const App = () => {
   const [showIncomePopup, setShowIncomePopup] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const [authMode, setAuthMode] = useState('login'); // 'login' or 'register'
+  const [showAuthModal, setShowAuthModal] = useState(false); // NEW: controls auth modal
   
   const totalBalance = income + transactions.reduce((acc, t) => acc + t.amount, 0);
   const totalIncome = transactions.filter(t => t.amount > 0).reduce((acc, t) => acc + t.amount, 0) + income;
@@ -100,20 +101,7 @@ const App = () => {
     );
   }
 
-  // Show authentication screens if user is not logged in
-  if (!user) {
-    return (
-      <ErrorBoundary>
-        {authMode === 'login' ? (
-          <Login onSwitchToRegister={() => setAuthMode('register')} />
-        ) : (
-          <Register onSwitchToLogin={() => setAuthMode('login')} />
-        )}
-      </ErrorBoundary>
-    );
-  }
-
-  // Show main app if user is authenticated
+  // Always show dashboard, never force auth on load
   return (
     <ErrorBoundary>
       <div className="app-container">
@@ -122,6 +110,8 @@ const App = () => {
           onEditIncome={handleEditIncome}
           currentPage={currentPage}
           onPageChange={setCurrentPage}
+          onProfileClick={() => setShowAuthModal(true)} // NEW: pass handler
+          user={user} // pass user for Header logic
         />
         
         {showIncomePopup && (
@@ -135,6 +125,20 @@ const App = () => {
         <main className="main-content">
           {renderContent()}
         </main>
+
+        {/* Auth Modal */}
+        {showAuthModal && !user && (
+          <div className="auth-modal-backdrop" onClick={() => setShowAuthModal(false)}>
+            <div className="auth-modal" onClick={e => e.stopPropagation()}>
+              {authMode === 'login' ? (
+                <Login onSwitchToRegister={() => setAuthMode('register')} />
+              ) : (
+                <Register onSwitchToLogin={() => setAuthMode('login')} />
+              )}
+              <button className="close-modal-btn" onClick={() => setShowAuthModal(false)}>Close</button>
+            </div>
+          </div>
+        )}
       </div>
     </ErrorBoundary>
   );
